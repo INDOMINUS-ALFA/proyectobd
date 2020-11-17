@@ -20,6 +20,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
+    }
 }
 
 dependencies {
@@ -30,5 +38,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.material:material:1.2.1'
+    def room_version = "2.2.5"
+    def archLifecycleVersion = "2.2.0"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    implementation "androidx.room:room-guava:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
+    
+
 
 }

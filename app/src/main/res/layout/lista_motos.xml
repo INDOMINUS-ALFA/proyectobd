@@ -5,13 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaMotos"
+    tools:context=".ui.ListaMotosActivity"
     >
 
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_id"
+        android:id="@+id/recyclerviewmoto_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
