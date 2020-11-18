@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.modulo.proyectobd.R;
 import com.modulo.proyectobd.basesDatos.models.Moto;
+import com.modulo.proyectobd.basesDatos.models.MotoMinimal;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class MotoSViewHolder extends RecyclerView.ViewHolder{
     ImageView motos_img;
     CardView cardView;
     private static Context motoContext;
-    private static List<Moto> motoData;
+    private static List<MotoMinimal> motoData;
     public MotoSViewHolder(View itemView) {
         super(itemView);
         nombre_moto = itemView.findViewById(R.id.nombre_moto_id);
@@ -38,9 +39,9 @@ public class MotoSViewHolder extends RecyclerView.ViewHolder{
 
 
 
-    public static class MotoListAdapter extends ListAdapter<Moto, MotoSViewHolder> {
+    public static class MotoListAdapter extends ListAdapter<MotoMinimal, MotoSViewHolder> {
 
-            public MotoListAdapter(@NonNull DiffUtil.ItemCallback<Moto> diffCallback) {
+            public MotoListAdapter(@NonNull DiffUtil.ItemCallback<MotoMinimal> diffCallback) {
                 super(diffCallback);
 
             }
@@ -68,15 +69,15 @@ public class MotoSViewHolder extends RecyclerView.ViewHolder{
                 });
             }
 
-            public static class WordDiff extends DiffUtil.ItemCallback<Moto> {
+            public static class WordDiff extends DiffUtil.ItemCallback<MotoMinimal> {
 
                 @Override
-                public boolean areItemsTheSame(@NonNull Moto oldItem, @NonNull Moto newItem) {
+                public boolean areItemsTheSame(@NonNull MotoMinimal oldItem, @NonNull MotoMinimal newItem) {
                     return oldItem == newItem;
                 }
 
                 @Override
-                public boolean areContentsTheSame(@NonNull Moto oldItem, @NonNull Moto newItem) {
+                public boolean areContentsTheSame(@NonNull MotoMinimal oldItem, @NonNull MotoMinimal newItem) {
                     return oldItem.getNombre().equals(newItem.getNombre());
                 }
             }

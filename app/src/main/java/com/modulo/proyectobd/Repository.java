@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import com.modulo.proyectobd.basesDatos.RoomBD;
 import com.modulo.proyectobd.basesDatos.models.Moto;
 import com.modulo.proyectobd.basesDatos.models.MotoDao;
+import com.modulo.proyectobd.basesDatos.models.MotoMinimal;
 
 import java.util.List;
 
@@ -28,8 +29,11 @@ public class Repository {
     /* Room executes all queries on a separate thread.
        Observed LiveData will notify the observer when the data has changed.*/
     LiveData<List<Moto>> getAllMotos() {
-
         return mAllMotos;
+    }
+
+    LiveData<List<MotoMinimal>> getMotosPorMarca(String marca) {
+        return mMotoDao.getAlphabetizedMotos(marca);
     }
 
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
