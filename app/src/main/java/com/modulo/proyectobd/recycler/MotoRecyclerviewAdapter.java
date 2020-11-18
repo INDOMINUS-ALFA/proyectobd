@@ -10,11 +10,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.modulo.proyectobd.R;
 import com.modulo.proyectobd.basesDatos.models.Marca;
 import com.modulo.proyectobd.basesDatos.models.Moto;
+import com.modulo.proyectobd.basesDatos.models.MotoMinimal;
 import com.modulo.proyectobd.ui.ListaMotosActivity;
 import com.modulo.proyectobd.ui.MotoEspecificaActivity;
 
@@ -22,9 +24,9 @@ import java.util.List;
 
 public class MotoRecyclerviewAdapter extends RecyclerView.Adapter<MotoRecyclerviewAdapter.MyViewHolderMoto> {
     private Context mContextmoto;
-    private List<Moto> mDatamoto;
+    private List<MotoMinimal> mDatamoto;
 
-    public MotoRecyclerviewAdapter(Context mContext, List<Moto> mData) {
+    public MotoRecyclerviewAdapter(Context mContext, List<MotoMinimal> mData) {
         this.mContextmoto = mContext;
         this.mDatamoto = mData;
 

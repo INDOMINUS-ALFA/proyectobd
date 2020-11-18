@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.modulo.proyectobd.basesDatos.models.Moto;
+import com.modulo.proyectobd.basesDatos.models.MotoMinimal;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ViewModel extends AndroidViewModel {
         mAllMotos = mRepository.getAllMotos();
     }
 
-    public LiveData<List<Moto>> getAllMotos() { return mAllMotos; }
+    public LiveData<List<MotoMinimal>> getAllMotos(String marca) { return mRepository.getMotosPorMarca(marca); }
 
     public void insert(Moto moto) { mRepository.insert(moto); }
 

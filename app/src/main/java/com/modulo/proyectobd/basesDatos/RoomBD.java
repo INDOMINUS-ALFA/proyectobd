@@ -22,7 +22,7 @@ public abstract class RoomBD extends RoomDatabase {
     public abstract MotoDao mainDao();
 
     private static volatile RoomBD INSTANCE;
-    private static final int NUMBER_OF_THREADS = 5;
+    private static final int NUMBER_OF_THREADS = 2;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
@@ -106,7 +106,7 @@ public abstract class RoomBD extends RoomDatabase {
                         "La W800, al igual que las W800 STREET y W800 CAFE, es una motocicleta que cautiva a una amplia variedad de pilotos gracias a su maniobrabilidad ligera y a sus exquisitos acabados (kodawari). La W800 destaca especialmente de entre estos tres modelos vintage actualizados, postulándose como la más fiel a la W original, tanto a nivel estético como en cuanto a las sensaciones que ofrece al piloto, quien a su vez siente el placer y el orgullo de conducir una maravilla de los años 60. Con la llegada de la W800, los pilotos en busca de un sabor de historia, ahora pueden disfrutar de 3 sabores de W",
                         "Nacked",
                         "Kawasaki",
-                        R.drawable.bmw_s1000rr_2015);
+                        R.drawable.kawasaki_w800_2015);
                 dao.insert(moto3);
 
             });
@@ -124,6 +124,7 @@ public abstract class RoomBD extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             RoomBD.class, DATABASE_NAME)
+                            .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
