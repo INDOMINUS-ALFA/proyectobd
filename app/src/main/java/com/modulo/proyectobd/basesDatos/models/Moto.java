@@ -33,9 +33,10 @@ public class Moto {
     @ColumnInfo @NonNull private String categoria;
     @ColumnInfo @NonNull private String marca;
     @ColumnInfo @NonNull private int miniatura;
+    @ColumnInfo @NonNull private String tipo_carnet;
 
 
-    public Moto(int cilindrada, int anio, int potencia, int manejo, int velPunta, int aerodinamica, int frenado, int aceleracion, int cilindros, int parMotor, int peso, int precio, String nombre, String suspension, String motor, String frenos, String especificaciones, String historia, String categoria, String marca,  int miniatura) {
+    public Moto(int cilindrada, int anio, int potencia, int manejo, int velPunta, int aerodinamica, int frenado, int aceleracion, int cilindros, int parMotor, int peso, int precio, String nombre, String suspension, String motor, String frenos, String especificaciones, String historia, String categoria, String marca, String tipo_carnet,  int miniatura ) {
         this.nombre = nombre;
         this.cilindrada = cilindrada;
         this.anio = anio;
@@ -60,7 +61,9 @@ public class Moto {
         this.historia = historia;
         this.categoria = categoria;
         this.marca = marca;
+        this.tipo_carnet= tipo_carnet;
         this.miniatura = miniatura;
+
     }
 
     public int getMiniatura() {
@@ -231,6 +234,15 @@ public class Moto {
         this.precio = precio;
     }
 
+    @NonNull
+    public String getTipo_carnet() {
+        return tipo_carnet;
+    }
+
+    public void setTipo_carnet(@NonNull String tipo_carnet) {
+        this.tipo_carnet = tipo_carnet;
+    }
+
     @Override
     public String toString() {
         return "Moto{" +
@@ -254,7 +266,9 @@ public class Moto {
                 ", categoria='" + categoria + '\'' +
                 ", precio='"+ precio + '\''+
                 ", marca='"+ marca + '\''+
+                ", tipo_carnet='"+ tipo_carnet + '\''+
                 ", miniatura='"+ miniatura + '\''+
+
                 '}';
     }
 
