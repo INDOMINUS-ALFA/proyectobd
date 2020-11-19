@@ -20,8 +20,8 @@
             android:id="@+id/motos_img_id"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:background="#2d2d2d"
+            android:scaleType="fitCenter"
+            android:background="#FFFFFF"
             />
         <TextView
             android:id="@+id/nombre_moto_id"
