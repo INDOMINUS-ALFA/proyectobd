@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.modulo.proyectobd.basesDatos.models.Moto;
+
 public class PagerControler  extends FragmentPagerAdapter {
     int numftabs;
-
-    public PagerControler(@NonNull FragmentManager fm, int behavior) {
+    Moto miMoto;
+    public PagerControler(@NonNull FragmentManager fm, int behavior, Moto miMoto) {
         super(fm, behavior);
         this.numftabs = behavior;
+        this.miMoto = miMoto;
     }
 
     @NonNull
@@ -18,7 +21,8 @@ public class PagerControler  extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                CaracteristicasFragment caract = new CaracteristicasFragment();
+
+                CaracteristicasFragment caract = new CaracteristicasFragment(miMoto);
                 return  caract;
             case 1:
                 HistoriaFragment hist = new HistoriaFragment();

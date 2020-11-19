@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="left"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="MissingClass">
 
             <ImageView
 
@@ -51,6 +52,20 @@
                 android:layout_toRightOf="@id/motominiatura"
                 android:text="cilindrada"
                 android:textSize="18dp" />
+
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/motostats"
+                android:layout_width="238dp"
+                android:layout_height="106dp"
+                android:layout_below="@id/cilindrada_moto"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="6dp"
+
+                android:layout_toRightOf="@id/motominiatura"
+                app:layout_constraintBottom_toBottomOf="@id/cilindrada_moto">
+
+            </com.github.mikephil.charting.charts.RadarChart>
 
         </RelativeLayout>
 

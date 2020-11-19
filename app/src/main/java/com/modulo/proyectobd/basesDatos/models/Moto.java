@@ -35,7 +35,9 @@ public class Moto {
     @ColumnInfo @NonNull private int miniatura;
     @ColumnInfo @NonNull private String tipo_carnet;
 
+    public Moto(){
 
+    }
     public Moto(int cilindrada, int anio, int potencia, int manejo, int velPunta, int aerodinamica, int frenado, int aceleracion, int cilindros, int parMotor, int peso, int precio, String nombre, String suspension, String motor, String frenos, String especificaciones, String historia, String categoria, String marca, String tipo_carnet,  int miniatura ) {
         this.nombre = nombre;
         this.cilindrada = cilindrada;
