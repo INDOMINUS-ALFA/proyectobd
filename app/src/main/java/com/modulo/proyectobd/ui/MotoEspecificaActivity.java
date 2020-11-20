@@ -5,13 +5,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -29,6 +34,7 @@ import com.modulo.proyectobd.ViewModel;
 import com.modulo.proyectobd.basesDatos.models.Moto;
 import com.modulo.proyectobd.controlador.PagerControler;
 import com.modulo.proyectobd.recycler.CaracteristicasAdapter;
+import com.modulo.proyectobd.settings.MySettings;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -37,12 +43,15 @@ public class MotoEspecificaActivity extends AppCompatActivity {
     private ViewModel myMotoViewModel;
     private RadarChart statsChart;
     Moto mimoto;
-
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moto_especifica);
+
+
+
         myMotoViewModel = new ViewModelProvider(this).get(ViewModel.class);
 
         String nombre = getIntent().getStringExtra("nombre");
@@ -204,5 +213,21 @@ public class MotoEspecificaActivity extends AppCompatActivity {
 
     public void updateUI() {
         updateStatsChart();
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id  = item.getItemId();
+
+        if(id == R.id.settings_itm){
+            Intent intent = new Intent(this, MySettings.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

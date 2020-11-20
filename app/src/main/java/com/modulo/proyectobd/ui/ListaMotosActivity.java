@@ -7,9 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Query;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.modulo.proyectobd.basesDatos.models.Marca;
 import com.modulo.proyectobd.basesDatos.models.Moto;
@@ -20,18 +24,23 @@ import com.modulo.proyectobd.recycler.MotoRecyclerviewAdapter;
 import com.modulo.proyectobd.recycler.MotoSViewHolder;
 import com.modulo.proyectobd.R;
 import com.modulo.proyectobd.ViewModel;
+import com.modulo.proyectobd.settings.MySettings;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaMotosActivity extends AppCompatActivity {
     private ViewModel myMotoViewModel;
+    Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_motos);
+
+
+
         RecyclerView recyclerView = findViewById(R.id.recyclerviewmoto_id);
         final MotoSViewHolder.MotoListAdapter adapter = new MotoSViewHolder.MotoListAdapter(new MotoSViewHolder.MotoListAdapter.WordDiff());
 
@@ -55,6 +64,21 @@ public class ListaMotosActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id  = item.getItemId();
+
+        if(id == R.id.settings_itm){
+            Intent intent3 = new Intent(this, MySettings.class);
+            startActivity(intent3);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
