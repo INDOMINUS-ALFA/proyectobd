@@ -62,9 +62,6 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         TextView cilin = findViewById(R.id.cilindrada_moto);
         cilin.setText(cilindrada + "CC");
 
-        /*String historiamoto= myMotoViewModel.motoSelecionada(nombre).getHistoria();
-        TextView hist = findViewById(R.id.historia_moto);
-        hist.setText(historiamoto);*/
 
 
         mimoto = new Moto();
@@ -81,7 +78,7 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         mimoto.setCategoria(myMotoViewModel.motoSelecionada(nombre).getCategoria());
         mimoto.setMarca(myMotoViewModel.motoSelecionada(nombre).getMarca());
         mimoto.setTipo_carnet(myMotoViewModel.motoSelecionada(nombre).getTipo_carnet());
-
+        mimoto.setHistoria(myMotoViewModel.motoSelecionada(nombre).getHistoria());
 
 
 
