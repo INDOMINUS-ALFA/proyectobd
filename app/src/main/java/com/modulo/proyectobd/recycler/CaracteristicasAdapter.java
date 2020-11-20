@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CaracteristicasAdapter extends RecyclerView.Adapter<CaracteristicasAdapter.ViewHolderCaracteristicas>{
 
     Moto mimoto;
-    String[]  nombres = new String[]{"año", "cilindros","Par Motor", "Peso","Precio", "Suspendion", "Motor", "Frenos", "Especificaciones", "Categoria", "Marca", "Tipo Carnet"  };
+    String[]  nombres = new String[]{"año", "cilindros","Par Motor", "Peso","Precio", "Suspension", "Motor", "Frenos", "Especificaciones", "Categoria", "Marca", "Tipo Carnet"  };
 
     public CaracteristicasAdapter(Moto mimoto) {
         this.mimoto = mimoto;
@@ -45,14 +45,14 @@ public class CaracteristicasAdapter extends RecyclerView.Adapter<Caracteristicas
                     break;
 
             case 2:
-                holder.descripcion.setText(mimoto.getParMotor() + "");
+                holder.descripcion.setText(mimoto.getParMotor() + "Nm/15000rpm");
                 break;
             case 3:
-                holder.descripcion.setText(mimoto.getPeso()+"");
+                holder.descripcion.setText(mimoto.getPeso()+"Kg");
                 break;
 
             case 4:
-                holder.descripcion.setText(mimoto.getPrecio()+"");
+                holder.descripcion.setText(mimoto.getPrecio()+"€");
                 break;
             case 5:
                 holder.descripcion.setText(mimoto.getSuspension());

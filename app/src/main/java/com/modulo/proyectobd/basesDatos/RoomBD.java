@@ -56,7 +56,13 @@ public abstract class RoomBD extends RoomDatabase {
                         "43 mm full ajustable",
                         "Aprilia V4 65°, 4-triempos, cuatro valvulas por cilindro.",
                         "Delantero: 330 mm doble disco perforado con pastilla Brembo M50. Trasero Monodisco, pinza flotante de un émbolo, 220 mm de diámetro ",
-                        "Control de tracción, Control Anticaballito, Launch-Control, quick-Shifter, velocidad_crucero,, pit_limiter, ABS,",
+                        "Control de tracción /n"  +
+                                        " Control Anticaballito /n"  +
+                                        "Launch-Control/n"  +
+                                        " quick-Shifter /n"  +
+                                        "velocidad_crucero /n" +
+                                        "pit_limiter /n" +
+                                        "ABS",
                         "Aclamada unánimemente por la crítica y codiciada por los motociclistas de todo el mundo, la RSV4 es el símbolo indiscutible del segmento y el referente en cuanto a deportividad y prestaciones. También es un brillante ejemplo de lo que la experiencia de un equipo de competición de éxito puede aportar, 54 campeonatos mundiales a sus espaldas en el transcurso de un espacio de tiempo relativamente corto. Las habilidades perfeccionadas en el circuito y transferidas a la línea de producción han permitido a los motoristas de todo el mundo experimentar las increíbles sensaciones y la emoción de Aprilia Racing.",
                         "SuperSport",
                         "Aprilia",
