@@ -8,10 +8,10 @@
     <TextView
         android:id="@+id/nombre"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="start|center_vertical"
         android:text="Nombre"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guia"
         app:layout_constraintHorizontal_bias="1.0"

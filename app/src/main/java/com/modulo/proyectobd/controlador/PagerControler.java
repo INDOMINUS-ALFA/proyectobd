@@ -25,7 +25,7 @@ public class PagerControler  extends FragmentPagerAdapter {
                 CaracteristicasFragment caract = new CaracteristicasFragment(miMoto);
                 return  caract;
             case 1:
-                HistoriaFragment hist = new HistoriaFragment();
+                HistoriaFragment hist = new HistoriaFragment(miMoto);
                 return  hist;
             default:
         }

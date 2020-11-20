@@ -61,8 +61,10 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         int cilindrada = myMotoViewModel.motoSelecionada(nombre).getCilindrada();
         TextView cilin = findViewById(R.id.cilindrada_moto);
         cilin.setText(cilindrada + "CC");
-        String historiamoto= myMotoViewModel.motoSelecionada(nombre).getHistoria();
 
+        /*String historiamoto= myMotoViewModel.motoSelecionada(nombre).getHistoria();
+        TextView hist = findViewById(R.id.historia_moto);
+        hist.setText(historiamoto);*/
 
 
         mimoto = new Moto();
@@ -93,7 +95,8 @@ public class MotoEspecificaActivity extends AppCompatActivity {
 
         TabItem caracteristicas = findViewById(R.id.tablaCaracteristicas);
         TabItem historia = findViewById(R.id.tablaHistoria);
-
+        configureInitialUIValues();
+        updateUI();
 
 
 
@@ -140,13 +143,13 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         statsChart.setWebAlpha(100);
         statsChart.setTouchEnabled(false);
 
-        MarkerView mv = new MarkerView(this, R.layout.activity_moto_especifica);
+        MarkerView mv = new MarkerView(this, R.layout.fragment_caracteristicas);
         statsChart.setMarker(mv);
 
         statsChart.setRotationEnabled(false);
 
         XAxis xAxis = statsChart.getXAxis();
-        xAxis.setTextSize(12f);
+        xAxis.setTextSize(5f);
         xAxis.setYOffset(0f);
         xAxis.setXOffset(0f);
 
@@ -154,9 +157,9 @@ public class MotoEspecificaActivity extends AppCompatActivity {
 
         YAxis yAxis = statsChart.getYAxis();
         yAxis.setLabelCount(5, false);
-        yAxis.setTextSize(9f);
+        yAxis.setTextSize(5f);
         yAxis.setAxisMinimum(0f);
-        yAxis.setAxisMaximum(23f);
+        yAxis.setAxisMaximum(10f);
         yAxis.setDrawLabels(false);
         xAxis.setValueFormatter(new StatsValueFormatter());
 
@@ -182,11 +185,11 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         radarStats.add(new RadarEntry(punta));
         radarStats.add(new RadarEntry(aerodinamica));
 
-        RadarDataSet set = new RadarDataSet(radarStats, "Destrezas");
+        RadarDataSet set = new RadarDataSet(radarStats, "Estadisticas");
         //set.setColor(Color.rgb(103, 110, 129));
-        set.setColor(Color.parseColor("#039BE5"));
+        set.setColor(Color.rgb(255, 0, 0));
         //set.setFillColor(Color.rgb(0, 0, 255));
-        set.setFillColor(Color.parseColor("#63CCFF"));
+        set.setFillColor(Color.parseColor("#ff0000"));
         set.setDrawFilled(true);
         set.setFillAlpha(100);
         set.setLineWidth(2f);
@@ -202,4 +205,7 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         statsChart.invalidate();
     }
 
+    public void updateUI() {
+        updateStatsChart();
+    }
 }

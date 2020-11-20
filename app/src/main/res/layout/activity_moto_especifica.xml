@@ -37,7 +37,7 @@
                 android:id="@+id/nombre_de_moto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/motominiatura"
                 android:text="nombre de la moto"
                 android:textSize="18dp" />
@@ -48,20 +48,20 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/nombre_de_moto"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
+
                 android:layout_toRightOf="@id/motominiatura"
                 android:text="cilindrada"
                 android:textSize="18dp" />
 
             <com.github.mikephil.charting.charts.RadarChart
                 android:id="@+id/motostats"
-                android:layout_width="238dp"
-                android:layout_height="106dp"
-                android:layout_below="@id/cilindrada_moto"
+                android:layout_width="239dp"
+                android:layout_height="131dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginStart="2dp"
 
+                android:layout_marginLeft="2dp"
+                android:layout_toEndOf="@+id/motominiatura"
                 android:layout_toRightOf="@id/motominiatura"
                 app:layout_constraintBottom_toBottomOf="@id/cilindrada_moto">
 
