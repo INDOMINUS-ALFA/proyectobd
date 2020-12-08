@@ -7,9 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.Toolbar;
 
 import com.modulo.proyectobd.recycler.MotoRecyclerviewAdapter;
 import com.modulo.proyectobd.recycler.MotoSViewHolder;
@@ -20,14 +26,31 @@ import com.modulo.proyectobd.settings.MySettings;
 public class ListaMotosActivity extends AppCompatActivity {
     private ViewModel myMotoViewModel;
     Context context;
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("VALUES", MODE_PRIVATE);
+        int temaelegido = sharedPreferences.getInt("THEME", 1);
+        switch (temaelegido){
+            case 1: setTheme(R.style.AppTheme);
+                break;
+            case 2: setTheme(R.style.custom1);
+                break;
+            case 3: setTheme(R.style.custom2);
+                break;
+            case 4: setTheme(R.style.custom3);
+                break;
+        }
         setContentView(R.layout.lista_motos);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+
+        navigationBarStatusBar();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewmoto_id);
         final MotoSViewHolder.MotoListAdapter adapter = new MotoSViewHolder.MotoListAdapter(new MotoSViewHolder.MotoListAdapter.WordDiff());
@@ -54,6 +77,9 @@ public class ListaMotosActivity extends AppCompatActivity {
 
     }
 
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.overflow, menu);
         return true;
@@ -67,6 +93,48 @@ public class ListaMotosActivity extends AppCompatActivity {
             startActivity(intent3);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void navigationBarStatusBar() {
+
+        // Fix portrait issues
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Fix issues for KitKat setting Status Bar color primary
+            if (Build.VERSION.SDK_INT >= 19) {
+                TypedValue typedValue19 = new TypedValue();
+                ListaMotosActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
+                final int color = typedValue19.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
+            }
+
+            // Fix issues for Lollipop, setting Status Bar color primary dark
+            if (Build.VERSION.SDK_INT >= 21) {
+                TypedValue typedValue21 = new TypedValue();
+                ListaMotosActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue21, true);
+                final int color = typedValue21.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
+            }
+        }
+
+        // Fix landscape issues (only Lollipop)
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                TypedValue typedValue19 = new TypedValue();
+                ListaMotosActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
+                final int color = typedValue19.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                TypedValue typedValue = new TypedValue();
+                ListaMotosActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+                final int color = typedValue.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
+            }
+        }
     }
 
 

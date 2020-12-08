@@ -27,15 +27,17 @@ public class MySettings extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     Button DeafultButton, Custom1, Custom2, Custom3;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_settings);
-        navigationBarStatusBar();
+
+
+
+
         sharedPreferences = getSharedPreferences("VALUES" , MODE_PRIVATE);
-        int tema = sharedPreferences.getInt("THEME", 1);
-        switch (tema){
+        int temaelegido = sharedPreferences.getInt("THEME", 1);
+        switch (temaelegido){
             case 1: setTheme(R.style.AppTheme);
             break;
             case 2: setTheme(R.style.custom1);
@@ -45,10 +47,26 @@ public class MySettings extends AppCompatActivity {
             case 4: setTheme(R.style.custom3);
                 break;
         }
-            setMyTheme();
 
+
+        setContentView(R.layout.my_settings);
+
+
+        // Setup Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Fix issues of navigation and status bars
+        navigationBarStatusBar();
+
+        // Setup buttons to apply themes.
+        setMyTheme();
 
     }
+
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.overflow, menu);
         return true;
@@ -82,14 +100,18 @@ public class MySettings extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= 19) {
                 TypedValue typedValue19 = new TypedValue();
                 MySettings.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
-
+                final int color = typedValue19.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
             }
 
             // Fix issues for Lollipop, setting Status Bar color primary dark
             if (Build.VERSION.SDK_INT >= 21) {
                 TypedValue typedValue21 = new TypedValue();
                 MySettings.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue21, true);
-
+                final int color = typedValue21.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
             }
         }
 
@@ -98,12 +120,16 @@ public class MySettings extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= 19) {
                 TypedValue typedValue19 = new TypedValue();
                 MySettings.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
-
+                final int color = typedValue19.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
             }
             if (Build.VERSION.SDK_INT >= 21) {
                 TypedValue typedValue = new TypedValue();
                 MySettings.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
-
+                final int color = typedValue.data;
+                FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
+                statusBar.setBackgroundColor(color);
             }
         }
     }
@@ -138,7 +164,7 @@ public class MySettings extends AppCompatActivity {
             }
         });
 
-        Custom3 = (Button) findViewById(R.id.buttonIndigo);
+        Custom3 = (Button) findViewById(R.id.buttontema3);
         Custom3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
