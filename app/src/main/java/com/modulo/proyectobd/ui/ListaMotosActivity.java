@@ -1,33 +1,21 @@
 package com.modulo.proyectobd.ui;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Query;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.modulo.proyectobd.basesDatos.models.Marca;
-import com.modulo.proyectobd.basesDatos.models.Moto;
-import com.modulo.proyectobd.basesDatos.models.MotoDao;
-import com.modulo.proyectobd.basesDatos.models.MotoMinimal;
-import com.modulo.proyectobd.recycler.MarcaRecyclerviewAdapter;
 import com.modulo.proyectobd.recycler.MotoRecyclerviewAdapter;
 import com.modulo.proyectobd.recycler.MotoSViewHolder;
 import com.modulo.proyectobd.R;
 import com.modulo.proyectobd.ViewModel;
 import com.modulo.proyectobd.settings.MySettings;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ListaMotosActivity extends AppCompatActivity {
     private ViewModel myMotoViewModel;

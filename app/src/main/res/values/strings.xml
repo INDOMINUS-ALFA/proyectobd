@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">proyectobd</string>
     <string name="item1">settings</string>
+
+    <string name="blue_button">Blue</string>
+
+    <string name="Style1">Estilo1</string>
+
+    <!-- Button label for green button -->
+    <string name="green_button">Green</string>
+    <string name="Style2">Estilo2</string>
+
+    <!-- Button label for red button -->
+    <string name="red_button">Red</string>
+    <string name="Style3">Estilo3</string>
+
+    <!-- Button label for black button -->
+    <string name="black_button">Black</string>
+    <string name="Style4">Estilo4</string>
+
+    <!-- Default string for count textview -->
+    <string name="default_count">0</string>
+
+    <!-- Button label for Count button -->
+    <string name="count_button">Count</string>
+
+    <!-- Button label for Reset button -->
+    <string name="reset_button">Reset</string>
 </resources>

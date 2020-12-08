@@ -2,7 +2,6 @@ package com.modulo.proyectobd.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
@@ -12,11 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -33,10 +29,8 @@ import com.modulo.proyectobd.StatsValueFormatter;
 import com.modulo.proyectobd.ViewModel;
 import com.modulo.proyectobd.basesDatos.models.Moto;
 import com.modulo.proyectobd.controlador.PagerControler;
-import com.modulo.proyectobd.recycler.CaracteristicasAdapter;
 import com.modulo.proyectobd.settings.MySettings;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MotoEspecificaActivity extends AppCompatActivity {
@@ -165,7 +159,7 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         yAxis.setLabelCount(5, false);
         yAxis.setTextSize(5f);
         yAxis.setAxisMinimum(0f);
-        yAxis.setAxisMaximum(10f);
+        yAxis.setAxisMaximum(100f);
         yAxis.setDrawLabels(false);
         xAxis.setValueFormatter(new StatsValueFormatter());
 

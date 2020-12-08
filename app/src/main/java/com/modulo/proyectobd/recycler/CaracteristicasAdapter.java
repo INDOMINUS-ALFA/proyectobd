@@ -45,7 +45,7 @@ public class CaracteristicasAdapter extends RecyclerView.Adapter<Caracteristicas
                     break;
 
             case 2:
-                holder.descripcion.setText(mimoto.getParMotor() + "Nm/15000rpm");
+                holder.descripcion.setText(mimoto.getParMotor() + "Nm");
                 break;
             case 3:
                 holder.descripcion.setText(mimoto.getPeso()+"Kg");
