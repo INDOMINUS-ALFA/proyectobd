@@ -25,8 +25,6 @@ import com.modulo.proyectobd.settings.MySettings;
 
 public class ListaMotosActivity extends AppCompatActivity {
     private ViewModel myMotoViewModel;
-    Context context;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +89,9 @@ public class ListaMotosActivity extends AppCompatActivity {
         if(id == R.id.settings_itm){
             Intent intent3 = new Intent(this, MySettings.class);
             startActivity(intent3);
+        }else if (id == R.id.home_itm){
+            Intent intent2 = new Intent(this, MainActivity.class);
+            startActivity(intent2);
         }
         return super.onOptionsItemSelected(item);
     }

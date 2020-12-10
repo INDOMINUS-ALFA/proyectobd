@@ -98,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         if(id == R.id.settings_itm){
             Intent intent = new Intent(this, MySettings.class);
             startActivity(intent);
+        } else if (id == R.id.home_itm){
+            Intent intent2 = new Intent(this, MainActivity.class);
+            startActivity(intent2);
         }
         return super.onOptionsItemSelected(item);
     }

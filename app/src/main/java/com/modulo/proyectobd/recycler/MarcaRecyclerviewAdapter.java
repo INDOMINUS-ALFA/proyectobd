@@ -18,7 +18,7 @@ import com.modulo.proyectobd.ui.ListaMotosActivity;
 
 import java.util.List;
 
-public class MarcaRecyclerviewAdapter extends RecyclerView.Adapter<MarcaRecyclerviewAdapter.MyViewHolder> {
+public class    MarcaRecyclerviewAdapter extends RecyclerView.Adapter<MarcaRecyclerviewAdapter.MyViewHolder> {
     private Context mContext;
     private List<Marca> mData;
 

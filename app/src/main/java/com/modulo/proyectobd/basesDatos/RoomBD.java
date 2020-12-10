@@ -155,7 +155,7 @@ public abstract class RoomBD extends RoomDatabase {
                         114,
                         206,
                         17499,
-                        "Kawasaki Ninja ZX10RR Replica",
+                        "Kawasaki Ninja ZX10RR Replica 2020",
                         "Horquilla invertida de 43 mm con cámara de compresión externa y ajuste en compresión y extensión, capacidad de ajuste de precarga",
                         "4 cilindros en linea con 4 valvulas por circuito con inyeccion electroica",
                         "Delantero: Doble disco lobulados semiflotantes de 330 mm con pinza radial Brembo M50, 4 pistones opuestos\n\n Trasero: Disco lobulado de 220 mm. Pinza: pistón simple ",
@@ -237,7 +237,7 @@ public abstract class RoomBD extends RoomDatabase {
                         R.drawable.kawasaki_400_2020);
                 dao.insert(moto8);
 
-                Moto moto9 = new Moto(399,
+                Moto moto9 = new Moto(998,
                         2020,
                         45 ,
                         40,
@@ -261,6 +261,78 @@ public abstract class RoomBD extends RoomDatabase {
                         R.drawable.kawasaki_400_2020);
                 dao.insert(moto9);
 
+                Moto moto10 = new Moto(998,
+                        2020,
+                        203 ,
+                        60,
+                        78,
+                        89,
+                        64,
+                        59,
+                        4 ,
+                        115,
+                        206 ,
+                        0,
+                        "Kawasaki Ninja ZX10R MY 2021",
+                        "Delantera: Horquilla invertida de 43 mm con cámara de compresión externa y ajuste en compresión y extensión, capacidad de ajuste de precarga. \n\n Trasera: Horizontal Back-link con suspensión BFRC de gas con depósito externo. Ajuste en compresión. Ajuste en extensión. Precarga de muelle totalmente ajustable ",
+                        "Refrigeración líquida, 4 tiempos, cuatro cilindro en línea",
+                        "Delantero Discos lobulados dobles semiflotantes de 330 mm. Pinza: montaje radial monobloc, Brembo M50, 4 pistones opuestos. \n\n Trasero:  Disco lobulado de 220 mm. Pinza: pistón simple ",
+                        "Control del Freno de Motor Kawasaki\n\n  KLCM - Función del control de salida\n\n  IMU\n\n  KQS - Cambio semiautomático de Kawasaki\n\n Sistema de válvulas de aceleración electrónico \n\n KCMF Función de asistencia en el giro  \n\n S-KTRC \n\n Modos de potencia\n\n Control de crucero \n\n Indicador ECO \n\n Conectividad Smartphone\n\n KIBS Sistema de frenado antibloqueo inteligente Kawasaki\n\n ABS\n\n Amortiguador trasero en disposición horizontal " ,
+                        "Siguiendo los parámetros de desarrollo del Kawasaki Racing Team, Kawasaki ha trabajado a fondo en el corazón de la Ninja ZX-10R para conseguir un nuevo modelo que nos permita seguir liderando con mano firme el campeonato del Mundo de SBK. Ninja ZX-10R Face Yourself. ",
+                        "SuperSport",
+                        "Kawasaki",
+                        "A",
+                        R.drawable.kawasaki_zx10r_2021);
+                dao.insert(moto10);
+
+                Moto moto11 = new Moto(998,
+                        2021,
+                        204 ,
+                        65,
+                        74,
+                        70,
+                        78,
+                        59,
+                        4 ,
+                        112,
+                        206 ,
+                        0,
+                        "Kawasaki Ninja ZX10RR 2021",
+                        "Delantera: Horquilla invertida de 43 mm con cámara de compresión externa y ajuste en compresión y extensión, capacidad de ajuste de precarga. \n\n Trasera: Horizontal Back-link con suspensión BFRC de gas con depósito externo. Ajuste en compresión. Ajuste en extensión. Precarga de muelle totalmente ajustable ",
+                        "Refrigeración líquida, 4 tiempos, cuatro cilindro en línea",
+                        "Delantero Discos lobulados dobles semiflotantes de 330 mm. Pinza: montaje radial monobloc, Brembo M50, 4 pistones opuestos. \n\n Trasero:  Disco lobulado de 220 mm. Pinza: pistón simple ",
+                        "Control del Freno de Motor Kawasaki\n\n  KLCM - Función del control de salida\n\n  IMU\n\n  KQS - Cambio semiautomático de Kawasaki\n\n Sistema de válvulas de aceleración electrónico \n\n KCMF Función de asistencia en el giro  \n\n S-KTRC \n\n Modos de potencia\n\n Control de crucero \n\n Indicador ECO \n\n Conectividad Smartphone\n\n KIBS Sistema de frenado antibloqueo inteligente Kawasaki\n\n ABS\n\n Amortiguador trasero en disposición horizontal " ,
+                        "Siguiendo los parámetros de desarrollo del Kawasaki Racing Team, Kawasaki ha trabajado a fondo en el corazón de la Ninja ZX-10R para conseguir un nuevo modelo que nos permita seguir liderando con mano firme el campeonato del Mundo de SBK. Ninja ZX-10R Face Yourself. ",
+                        "SuperSport",
+                        "Kawasaki",
+                        "A",
+                        R.drawable.kawasaki_zx10rr_2021);
+                dao.insert(moto11);
+
+                Moto moto12 = new Moto(998,
+                        2021,
+                        200 ,
+                        60,
+                        62,
+                        51,
+                        89,
+                        85,
+                        4 ,
+                        137,
+                        235,
+                        0,
+                        "Kawasaki Z H2 SE",
+                        "Delantera:     Horquilla invertida de 41 mm con ajuste en extensión y ajuste de precarga . \n\n Trasera: Horizontal Back-link, de gas, con ajuste en extensión y ajuste de precarga remota",
+                        "Refrigeración líquida, 4 tiempos, cuatro cilindro en línea",
+                        "Delantero:    Discos lobulados dobles semiflotantes de 300 mm. Pinza: montaje radial doble, monobloque, 4 pistones opuestos . \n\n Trasero:  Disco lobulado de 250 mm. Calibrador: pistón único",
+                        "Motor sobrealimentado\n\n  KLCM - Función del control de salida\n\n  IMU\n\n  KQS - Cambio semiautomático de Kawasaki\n\n Sistema de válvulas de aceleración electrónico \n\n KCMF Función de asistencia en el giro  \n\n S-KTRC \n\n Modos de potencia\n\n Control de crucero \n\n Indicador ECO \n\n Conectividad Smartphone\n\n KIBS Sistema de frenado antibloqueo inteligente Kawasaki\n\n ABS\n\n Amortiguador trasero en disposición horizontal " ,
+                        "El siguiente nivel en las Supernaked ha llegado. La nueva ZH2 SE está potenciada por la tecnologia exclusiva del Supercharger de Kawasaki, con nuevas características que  ofrecen un rendimiento sin igual: nueva suspensión electrónica Showa con la\n" +
+                                "tecnologia Shyhook, los frenos Brembo de la H2, nuevos colores, se han juntado para potenciar tus emociones más allá de los límites SUPERCHARGE!  ",
+                        "SuperNaked",
+                        "Kawasaki",
+                        "A",
+                        R.drawable.kawasaki_zx10rr_2021);
+                dao.insert(moto12);
             });
         }
     };
