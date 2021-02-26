@@ -30,6 +30,7 @@ import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.modulo.proyectobd.Geolocalizacion.LocalizacionActivity;
 import com.modulo.proyectobd.R;
 import com.modulo.proyectobd.StatsValueFormatter;
 import com.modulo.proyectobd.ViewModel;
@@ -249,6 +250,13 @@ public class MotoEspecificaActivity extends AppCompatActivity {
         }else if (id == R.id.home_itm){
             Intent intent2 = new Intent(this, MainActivity.class);
             startActivity(intent2);
+        }else if (id == R.id.location){
+            Intent intent3 = new Intent(this, LocalizacionActivity.class);
+            startActivity(intent3);
+        }else if (id == R.id.ubicaciones_lista) {
+            Intent intent4 = new Intent(this, Ubicaciones_Activity.class);
+            startActivity(intent4);
+
         }
         return super.onOptionsItemSelected(item);
     }

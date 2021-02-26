@@ -25,6 +25,7 @@ public class MotoSViewHolder extends RecyclerView.ViewHolder{
     TextView nombre_moto;
     ImageView motos_img;
     CardView cardView;
+
     private static Context motoContext;
     private static List<MotoMinimal> motoData;
     public MotoSViewHolder(View itemView) {
@@ -32,9 +33,6 @@ public class MotoSViewHolder extends RecyclerView.ViewHolder{
         nombre_moto = itemView.findViewById(R.id.nombre_moto_id);
         motos_img = itemView.findViewById(R.id.motos_img_id);
         cardView = (CardView) itemView.findViewById(R.id.cardview_id);
-
-
-
     }
 
 

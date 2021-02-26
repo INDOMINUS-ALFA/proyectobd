@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -17,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
+import com.modulo.proyectobd.Geolocalizacion.LocalizacionActivity;
 import com.modulo.proyectobd.recycler.MotoRecyclerviewAdapter;
 import com.modulo.proyectobd.recycler.MotoSViewHolder;
 import com.modulo.proyectobd.R;
@@ -92,6 +92,13 @@ public class ListaMotosActivity extends AppCompatActivity {
         }else if (id == R.id.home_itm){
             Intent intent2 = new Intent(this, MainActivity.class);
             startActivity(intent2);
+        }else if (id == R.id.location){
+        Intent intent3 = new Intent(this, LocalizacionActivity.class);
+        startActivity(intent3);
+    }else if (id == R.id.ubicaciones_lista) {
+            Intent intent4 = new Intent(this, Ubicaciones_Activity.class);
+            startActivity(intent4);
+
         }
         return super.onOptionsItemSelected(item);
     }

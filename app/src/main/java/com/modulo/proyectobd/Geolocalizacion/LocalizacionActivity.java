@@ -1,39 +1,37 @@
-package com.modulo.proyectobd.ui;
+package com.modulo.proyectobd.Geolocalizacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.Toolbar;
+import android.widget.TextView;
 
-import com.modulo.proyectobd.Geolocalizacion.LocalizacionActivity;
-import com.modulo.proyectobd.basesDatos.models.Marca;
 import com.modulo.proyectobd.R;
-import com.modulo.proyectobd.recycler.MarcaRecyclerviewAdapter;
 import com.modulo.proyectobd.settings.MySettings;
+import com.modulo.proyectobd.ui.MainActivity;
+import com.modulo.proyectobd.ui.Ubicaciones_Activity;
+import com.modulo.proyectobd.ui.Guardado_de_datos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
-    private List<Marca> lstmarca;
-    private Context context;
-
-
-
+public class LocalizacionActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+    private TextView tvLatitud, tvLongitud, tvAltura, tvPrecision;
+    private LocationManager locManager;
+    private Location loc;
+    private Button guardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,45 +49,46 @@ public class MainActivity extends AppCompatActivity {
             case 4: setTheme(R.style.custom3);
                 break;
         }
-        setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+        setContentView(R.layout.activity_localizacion);
+        tvLatitud = (TextView) findViewById(R.id.Latitud);
+        tvLongitud = (TextView) findViewById(R.id.Longitud);
+        tvAltura = (TextView) findViewById(R.id.Altura);
+        tvPrecision = (TextView) findViewById(R.id.Precision);
+        ActivityCompat.requestPermissions(LocalizacionActivity.this, new String[]{
                 Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            tvLatitud.setText("No se han definido los permisos necesarios.");
+            tvLongitud.setText("");
+            tvAltura.setText("");
+            tvPrecision.setText("");
+
+            return;
+        } else {
+        }
+        locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        tvLatitud.setText(String.valueOf(loc.getLatitude()));
+        tvLongitud.setText(String.valueOf(loc.getLongitude()));
+        tvAltura.setText(String.valueOf(loc.getAltitude()));
+        tvPrecision.setText(String.valueOf(loc.getAccuracy()));
 
 
-        lstmarca = new ArrayList<>();
-        lstmarca.add(new Marca("Aprilia", R.drawable.aprilia));
-        lstmarca.add(new Marca("Kawasaki", R.drawable.kawasaki));
-        lstmarca.add(new Marca("Yamaha", R.drawable.yamaha));
-        lstmarca.add(new Marca("Suzuki", R.drawable.suzuki));
-        lstmarca.add(new Marca("BMW", R.drawable.bmw));
-        lstmarca.add(new Marca("KTM", R.drawable.ktm));
-        lstmarca.add(new Marca("Honda", R.drawable.honda));
-        lstmarca.add(new Marca("Harley Davison", R.drawable.harley));
-        lstmarca.add(new Marca("Triumph", R.drawable.triumph));
-        lstmarca.add(new Marca("MV Augustav", R.drawable.mv_augustav));
-        lstmarca.add(new Marca ("Benelli", R.drawable.benelli));
-        lstmarca.add(new Marca("Ducati", R.drawable.ducati));
-        lstmarca.add(new Marca("Husqvarna", R.drawable.husqvarna));
-        lstmarca.add(new Marca("Peugeot", R.drawable.peugeot));
-        lstmarca.add(new Marca("Piaggio", R.drawable.piaggio));
-        lstmarca.add(new Marca("Royal Enfield", R.drawable.royal_enfield));
-
-
-
-
-        RecyclerView my_rw = (RecyclerView) findViewById(R.id.recyclerview_id);
-        MarcaRecyclerviewAdapter my_adapter = new MarcaRecyclerviewAdapter(this,lstmarca);
-
-        my_rw.setLayoutManager(new GridLayoutManager(this,3));
-        my_rw.setAdapter(my_adapter);
+        guardar = (Button) findViewById(R.id.button) ;
+        if (guardar != null) {
+            guardar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent enviarDatos = new Intent(LocalizacionActivity.this, Guardado_de_datos.class);
+                    enviarDatos.putExtra("longitud", String.valueOf(tvLongitud));
+                    enviarDatos.putExtra("latitud", String.valueOf(tvLatitud));
+                    enviarDatos.putExtra("altura", String.valueOf(tvAltura));
+                    enviarDatos.putExtra("preciosion", String.valueOf(tvPrecision));
+                }
+            });
+        }
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-
-    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.overflow, menu);
@@ -109,10 +108,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent3 = new Intent(this, LocalizacionActivity.class);
             startActivity(intent3);
         }else if (id == R.id.ubicaciones_lista) {
-        Intent intent4 = new Intent(this, Ubicaciones_Activity.class);
-        startActivity(intent4);
-
-    }
+            Intent intent4 = new Intent(this, Ubicaciones_Activity.class);
+            startActivity(intent4);
+            }
         return super.onOptionsItemSelected(item);
     }
 
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             // Fix issues for KitKat setting Status Bar color primary
             if (Build.VERSION.SDK_INT >= 19) {
                 TypedValue typedValue19 = new TypedValue();
-                MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
+                LocalizacionActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
                 final int color = typedValue19.data;
                 FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
                 statusBar.setBackgroundColor(color);
@@ -132,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             // Fix issues for Lollipop, setting Status Bar color primary dark
             if (Build.VERSION.SDK_INT >= 21) {
                 TypedValue typedValue21 = new TypedValue();
-                MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue21, true);
+                LocalizacionActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue21, true);
                 final int color = typedValue21.data;
                 FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
                 statusBar.setBackgroundColor(color);
@@ -143,14 +141,14 @@ public class MainActivity extends AppCompatActivity {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             if (Build.VERSION.SDK_INT >= 19) {
                 TypedValue typedValue19 = new TypedValue();
-                MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
+                LocalizacionActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
                 final int color = typedValue19.data;
                 FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
                 statusBar.setBackgroundColor(color);
             }
             if (Build.VERSION.SDK_INT >= 21) {
                 TypedValue typedValue = new TypedValue();
-                MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+                LocalizacionActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
                 final int color = typedValue.data;
                 FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
                 statusBar.setBackgroundColor(color);
